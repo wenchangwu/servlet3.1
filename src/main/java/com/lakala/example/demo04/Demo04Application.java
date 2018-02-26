@@ -26,7 +26,7 @@ public class Demo04Application extends SpringBootServletInitializer {
         return builder.sources(Demo04Application.class);
     }
 
-    /*@Bean
+    @Bean
     public static ServletRegistrationBean servletRegistrationBean() {
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean();
 
@@ -45,5 +45,5 @@ public class Demo04Application extends SpringBootServletInitializer {
         filterRegistrationBean.setDispatcherTypes(DispatcherType.REQUEST,DispatcherType.FORWARD,DispatcherType.INCLUDE);
 
         return filterRegistrationBean;
-    }*/
+    }
 }

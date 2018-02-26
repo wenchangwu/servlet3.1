@@ -1,5 +1,6 @@
 package com.lakala.example.demo04.servlet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,17 +14,15 @@ public class MyServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
         System.out.println("this is just a demo from get");
+        doGet(req,resp);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher dispatcher=req.getRequestDispatcher("/forwardServlet");
+        dispatcher.forward(req,resp);
         Writer writer=resp.getWriter();
-        writer.write("this is just a test");
-        req.getServletContext().setAttribute("country","zh");
-        req.getServletContext().setAttribute("country","cn");
-        req.getServletContext().removeAttribute("country");
-        req.getServletContext().log("myServlet doGet");
+        writer.write("this is just a test\n");
     }
 }
